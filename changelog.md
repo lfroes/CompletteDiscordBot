@@ -3,6 +3,9 @@
 ## [0.0.4] 02-04-2022
 ### Added
 - /profile command
+
+### Adjusments
+- Mongo now is on .env file for security matters
 ## [0.0.3] 02-04-2022
 
 ### Adjusments
