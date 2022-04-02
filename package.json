@@ -1,0 +1,30 @@
+{
+  "name": "complettediscordbot",
+  "version": "0.0.1",
+  "description": "The Discord Bot for Complette Web",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lfroes/CompletteDiscordBot.git"
+  },
+  "keywords": [
+    "Discord Bot",
+    "Bot",
+    "DiscordJS"
+  ],
+  "author": "Luiz Froes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lfroes/CompletteDiscordBot/issues"
+  },
+  "homepage": "https://github.com/lfroes/CompletteDiscordBot#readme",
+  "dependencies": {
+    "discord.js": "^13.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.12.0"
+  }
+}
