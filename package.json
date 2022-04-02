@@ -4,7 +4,12 @@
   "description": "The Discord Bot for Complette Web",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "start": "node index.js",
+    "live-reload": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "17"
   },
   "repository": {
     "type": "git",
@@ -22,9 +27,18 @@
   },
   "homepage": "https://github.com/lfroes/CompletteDiscordBot#readme",
   "dependencies": {
-    "discord.js": "^13.6.0"
+    "@discordjs/builders": "^0.12.0",
+    "@discordjs/rest": "^0.3.0",
+    "axios": "^0.26.1",
+    "discord-api-types": "^0.30.0",
+    "discord.js": "^13.6.0",
+    "dotenv": "^16.0.0",
+    "mongodb": "^4.4.1",
+    "pino": "^7.9.2",
+    "pino-pretty": "^7.6.0"
   },
   "devDependencies": {
-    "eslint": "^8.12.0"
+    "eslint": "^8.12.0",
+    "nodemon": "^2.0.15"
   }
 }
