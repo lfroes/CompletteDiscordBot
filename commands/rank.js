@@ -1,5 +1,4 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
-const { MessageEmbed } = require("discord.js");
 require("dotenv").config();
 const { MongoClient } = require("mongodb");
 const uri = process.env.MONGO_URI;
