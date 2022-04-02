@@ -1,6 +1,9 @@
 # Changelog
 
-## [0.0.3] 01-04-2022
+## [0.0.4] 02-04-2022
+### Added
+- /profile command
+## [0.0.3] 02-04-2022
 
 ### Adjusments
 - Command /rank fully operational

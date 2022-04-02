@@ -1,10 +1,8 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
-const axios = require("axios");
 const { MessageEmbed } = require("discord.js");
-
+require("dotenv").config();
 const { MongoClient } = require("mongodb");
-const uri =
-  "mongodb+srv://cpt-admin:leecf222@cdd-base.vu0b0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const uri = process.env.MONGO_URI;
 const client = new MongoClient(uri);
 
 const getLastRank = async () => {

@@ -6,9 +6,11 @@ O Bot da complette foi feito para ajudar os funcionarios da Complette, com infor
 ## Lista de comandos
 
 
-| Comando |Oque faz  | Subcomandos? |  Requer cargo?|
+| Comando |Oque faz  | Parametros? |  Requer cargo?|
 |--|--|--|--|
 | [rank](###rank) | Traz o rank de melhores do mês  | **Não** | **Não** |
+|--|--|--|--|
+| [profile](###profile) | Retorna o perfil de algum colaborador  | **Sim** | **Não** |
 
 
   
