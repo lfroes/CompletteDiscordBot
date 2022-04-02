@@ -8,10 +8,17 @@ O Bot da complette foi feito para ajudar os funcionarios da Complette, com infor
 
 | Comando |Oque faz  | Subcomandos? |  Requer cargo?|
 |--|--|--|--|
-| rank | Traz o rank de melhores do mês  | **Não** | **Não** |
+| [rank](###rank) | Traz o rank de melhores do mês  | **Não** | **Não** |
 
 
   
+
+## Commands
+
+### Rank
+Com o comando rank, você tem em retorno os melhores do mês, o rank é conectado com nosso banco de dados Mongo, com isso futuramente iremos implementar o historico de ranks.
+
+
   
 
 ## Updates
