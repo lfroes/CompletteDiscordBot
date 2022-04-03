@@ -2,10 +2,13 @@
 
 ## [0.0.4] 02-04-2022
 ### Added
-- /profile command
+- /profile get ( fetch user info on CDD )
+- /profile create (create a new profile user on CDD) {Adm Only}
+
 
 ### Adjusments
 - Mongo now is on .env file for security matters
+- /profile get by itself try to catch user by discord user that called the command
 ## [0.0.3] 02-04-2022
 
 ### Adjusments
