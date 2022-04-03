@@ -148,6 +148,7 @@ module.exports = {
     }
 
     if (interaction.options._subcommand === "create") {
+      let invokedChannel = interaction.channel;
       interaction.reply("Vamo criar um novo usuario então? Bora");
       const interactionUser = await interaction.guild.members.cache.get(
         interaction.user.id
@@ -321,13 +322,14 @@ module.exports = {
         );
 
       if (!isOk) {
-        return await interaction.reply("```Cancelado pelo usuario```");
+        return await invokedChannel.send("```Cancelado pelo usuario```");
       }
 
       await interactionUser.send("```Criando usuario aguarde...```");
       const userCreation = await createUser(userData);
       await interactionUser.send(userCreation);
-      return await interaction.reply("```Usuario criado com sucesso!```", {
+      await invokedChannel.send("```Novo usuario criado com sucesso!```");
+      await invokedChannel.send({
         embeds: [embedConfirm],
       });
     }
