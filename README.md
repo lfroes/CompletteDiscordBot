@@ -22,7 +22,7 @@ O Bot da complette foi feito para ajudar os funcionarios da Complette, com infor
   
 
 | Comando |Oque faz | Sub Comandos? | Parametros?| Requer Cargos?
-|--|--|--|--|--
+|--|--|--|--|--|
 | [rank](###rank) | Traz o rank de melhores do mês | **Não** | **Não** | **Não**
 | [profile](###profile) | Retorna o perfil do colaborador | **Sim** | **Não** | **Não**
 
@@ -61,7 +61,7 @@ Se o usuario já existir no banco, ele não vai finalizar a criação
   
 
 | Nome |Oque faz | Parametros?| Requer Cargos?
-|--|--|--|--|--|
+|--|--|--|--|
 | [get](###rank) | Pegar informações de algum colaborador / parceiro | **Sim** | **Não** |
 | [create](###profile) | Cria um perfil do colaborador / parceiro no CDD | **Não** | **Sim** |
 
@@ -83,7 +83,7 @@ Quando com parametros retorna multiplos resultados (se tiver) enquanto sem retor
   
 
 | Parametro| Oque é | Obrigatorio? | Requer Cargos?
-|--|--|--|--|--|
+|--|--|--|--|
 | [nome_do_colaborador](###rank) |nome do usuario que deseja encontrar | **Não** | **Não** |
 
   
