@@ -3,7 +3,23 @@ const { MongoClient } = require("mongodb");
 require("dotenv").config();
 const uri = process.env.MONGO_URI;
 const client = new MongoClient(uri);
-const { MessageEmbed } = require("discord.js");
+const { MessageEmbed, MessageActionRow, MessageButton } = require("discord.js");
+
+
+const deleteUser = async (user) => {
+  try {
+    await client.connect();
+
+    const db = client.db("cdd-base");
+    const col = db.collection("users");
+
+    await col.deleteOne({ name: user.name });
+    return "Usuário deletado com sucesso";
+  } finally {
+    await client.close();
+  }
+}
+
 
 const createUser = async (user) => {
   try {
@@ -113,6 +129,17 @@ module.exports = {
         )
     )
     .addSubcommand((subcommand) =>
+      subcommand
+        .setName("delete")
+        .setDescription("Deleta um colaborador pelo seu nome")
+        .addStringOption((option) =>
+          option
+            .setName("nome_do_colaborador")
+            .setDescription("Nome do colaborador")
+            .setRequired(true)
+        )
+    )
+    .addSubcommand((subcommand) =>
       subcommand.setName("create").setDescription("Cria um novo usuario no CDD")
     ),
   async execute(interaction) {
@@ -127,7 +154,7 @@ module.exports = {
             const embed = await createEmbed(user);
             await interaction.channel.send({ embeds: [embed] });
           }
-          await interaction.reply("Segue aqui os resultados")
+          await interaction.reply("Segue aqui os resultados");
         }
       }
       if (interaction.options._hoistedOptions.length === 0) {
@@ -332,6 +359,58 @@ module.exports = {
       await invokedChannel.send({
         embeds: [embedConfirm],
       });
+    }
+
+    if (interaction.options._subcommand === "delete") {
+      const interactionUser = await interaction.guild.members.cache.get(
+        interaction.user.id
+      );
+      const roles = interactionUser._roles;
+      const userIsAdmin = roles.find((role) => role === "847465165725106207");
+      const userName = interaction.options.getString("nome_do_colaborador");
+
+      if (!userIsAdmin) {
+        return interaction.reply(
+          "Você precisa ser administrador para poder executar esse comando"
+        );
+      }
+
+      const userData = await getUserByName(userName, true);
+
+      if (!userData) {
+        return interaction.reply("```Usuario não encontrado```");
+      }
+
+      const embedConfirm = await createEmbed(userData, "delete");
+      await interaction.channel.send({ embeds: [embedConfirm] });
+
+      const deleteUserOptions = new MessageActionRow().addComponents(
+        new MessageButton()
+          .setCustomId("delete")
+          .setLabel("Deletar")
+          .setStyle("DANGER")
+      );
+
+      
+
+      await interaction.reply({
+        content: "Deletar esse usuario?",
+        ephemeral: true,
+        components: [deleteUserOptions],
+      });
+
+      const collector = interaction.channel.createMessageComponentCollector({
+        time: 15000,
+      })
+
+      collector.on("collect", async (i) => {
+        if (i.customId === "delete") {
+          await interaction.channel.send({content: "```Deletando usuario aguarde...```", ephemeral: true});
+          const userDeletion = await deleteUser(userData);
+          await interaction.channel.send(userDeletion);
+          collector.stop();
+        }
+      })
     }
   },
 };

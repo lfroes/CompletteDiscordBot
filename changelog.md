@@ -1,6 +1,10 @@
 # Changelog
 
 
+## [0.0.5] 03-04-2022
+
+### Added 
+- /profile delete command (Deletes user on CDD)
 ## [0.0.4a] 03-04-2022
 
 ### Bugfixes 

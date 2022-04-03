@@ -1,5 +1,5 @@
 const fs = require("node:fs");
-const { Client, Collection, Intents } = require("discord.js");
+const { Client, Collection, Intents, MessageActionRow } = require("discord.js");
 require("dotenv/config");
 const logger = require("pino")({
   transport: {
@@ -50,6 +50,20 @@ client.on('interactionCreate', async interaction => {
 		console.error(error);
 		await interaction.reply({ content: 'Deu ruim', ephemeral: true });
 	}
+
+	if (interaction.isButton()) {
+        if (interaction.customId === "delete") {
+
+            interaction.component.setStyle("DANGER");
+
+            interaction.update({
+                components: [
+                    new MessageActionRow().addComponents(interaction.component)
+                ]
+            });
+
+        }
+    }
 });
 
 client.login(token);
