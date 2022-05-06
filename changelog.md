@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.0.6] 07-04-2022
+
+### Changes
+- Redefined /profile create component and composition
+
+
 
 ## [0.0.5] 03-04-2022
 
@@ -18,7 +24,6 @@ It was happening because the reply on the start of the command works a return, a
 - /profile create (create a new profile user on CDD) {Adm Only}
 
 
-### Adjusments
 - Mongo now is on .env file for security matters
 - /profile get by itself try to catch user by discord user that called the command
 ## [0.0.3] 02-04-2022

@@ -188,6 +188,7 @@ module.exports = {
           "Você precisa ser administrador para poder executar esse comando"
         );
       }
+
       const filter = (m) => m.author.id === interaction.user.id;
       const DM = await interaction.member.send({
         content:

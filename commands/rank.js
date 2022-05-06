@@ -11,7 +11,7 @@ const getLastRank = async () => {
     const db = client.db("cdd-base");
     const col = db.collection("bestof");
 
-    const lastRank = await col.findOne({}, { sort: { _id: -1 }, limit: 1 });
+    const lastRank = await col.findOne()
 
     return lastRank;
   } finally {
@@ -48,7 +48,7 @@ const createEmbed = async (embedContent) => {
     BestTraineeDeveloper,
     BestMarketing,
     HonoredMention,
-    BestPartnerDev
+    BestPartnerDev,
   } = embedContent;
   const finances = await handleBests(BestFinances);
   const operational = await handleBests(BestOperational);
@@ -103,12 +103,12 @@ const createEmbed = async (embedContent) => {
       },
       {
         name: `Honored Mention`,
-        value: `🏆 ${HonoredMention.Name} - ${HonoredMention.Reason}` ,
+        value: `🏆 ${HonoredMention.Name} - ${HonoredMention.Reason}`,
       },
       {
         name: `Partner Dev`,
-        value: `🏅 ${BestPartnerDev.Name}` ,
-      }
+        value: `🏅 ${BestPartnerDev.Name}`,
+      },
     ],
   });
 };
